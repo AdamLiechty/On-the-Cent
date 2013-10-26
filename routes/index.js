@@ -21,7 +21,6 @@ exports.createTrail =  function(req, res){
       });
     });
   } else {
-    console.log(req.query);
     go(req.query.trail, req.query.admin);
   }
 
@@ -41,11 +40,16 @@ exports.createTrail =  function(req, res){
 
     res.render("create-trail", {
       title: "On the Cent",
-      pennies: [{year: 1234}],
+      pennies: [{year: 1987}],
       trail: trail,
       admin: admin,
       adminQuery: adminQuery,
       trailQuery: trailQuery
     });
   }
+};
+
+exports.postTrail = function(req, res) {
+  // TODO: POST stuff.
+  exports.createTrail(req, res);
 };

@@ -33,7 +33,8 @@ app.configure('development', function(){
 });
 
 app.get("/", routes.index);
-app.get("/create-trail", routes.createTrail)
+app.get("/create-trail", routes.createTrail);
+app.post("/create-trail", routes.postTrail);
 app.get("/users", user.list);
 
 fs.mkdir(app.get("dataDir"), function(ex) {
