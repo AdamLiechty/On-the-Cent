@@ -1,11 +1,37 @@
 extends layout
 
 block content
-  div(class="container")
-    div(class="jumbotron")
-      h1 New Trail
-      p(class="lead") TODO: Codes
-      p
-        input(type="number" id="penny-year")
-      p
-        a(class="btn btn-lg btn-success" href="/create-trail") Create a Trail
+  .navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header
+        a.navbar-brand(href="#") On the Cent
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.dropdown
+            a.dropdown-toggle(href="#" data-toggle="dropdown") Trail Links
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href="/create-trail?" + adminQuery) Admin
+              li
+                a(href="/trail?" + trailQuery) Hunt
+              li
+                a(href="/trail?" + adminQuery) Cheat
+  .container
+    .create
+      p.lead Set up your trail
+      p Don't lose this admin URL!
+      form(method="POST")
+        fieldset
+          .form-group
+            - for (var i = 0; i < pennies.length; ++i) {
+              label(for="penny-year-" + i) Penny's year:
+              input.form-control(type="number" value= pennies[0].year id="penny-year=" + i )
+            - }
+        fieldset
+          .form-group
+            label(for="photos") Add photos:
+            input.form-control(type="file" multiple="multiple" id="photos")
+        fieldset
+          .form-group
+            a.btn.btn-lg.btn-success(href="/create-trail") Create a Trail
