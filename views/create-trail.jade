@@ -19,18 +19,21 @@ block content
                 a(href="/trail?" + adminQuery) Cheat
   .container
     .create
-      p.lead Set up your trail
+      p.lead Set up your trail (!!NOT IMPLEMENTED!!)
       p Don't lose this admin URL!
       form(method="POST")
         fieldset
-          .form-group
-            - for (var i = 0; i < pennies.length; ++i) {
+          - for (var i = 0; i < pennies.length; ++i) {
+            .form-group
               label(for="penny-year-" + i) Penny's year:
               input.form-control(type="number" value= pennies[i].year id="penny-year=" + i )
-            - }
+            .form-group
+              label(for="penny-caption-" + i) Caption:
+              input.form-control(type="text" value= pennies[i].caption id="penny-caption-" + i)
+          - }
         fieldset
           .form-group
-            label(for="photos") Add photos:
+            label(for="photos") Add photos of places where pennies are hidden to your trail:
             input.form-control(type="file" multiple="multiple" id="photos")
         fieldset
           .form-group
