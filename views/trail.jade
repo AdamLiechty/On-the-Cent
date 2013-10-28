@@ -1,0 +1,35 @@
+extends layout
+
+block styles
+  link(rel="stylesheet", href="/stylesheets/style-trail.css")
+
+block scripts
+  script(src="/javascripts/trail.js")
+  script
+    var _trailId = "!{trail}";
+
+block content
+  #start(data-bind="if: !started()")
+    .container
+      .jumbotron.translucent(data-bind="with: data")
+        h1= title
+        h2(data-bind="text: caption")
+        button.btn.btn-lg.btn-success.huge(data-bind="click: $root.start") Let's go!
+  #started(data-bind="if: started")
+    div(data-bind="with: data")
+      div(data-bind="foreach: steps")
+        div(data-bind="visible: $index() == $root.index()")
+          img.step(data-bind="attr: { src: image }")
+      #digits
+        div
+          img(src="images/1.jpg")
+          img(src="images/2.jpg")
+          img(src="images/3.jpg")
+        div
+          img(src="images/4.jpg")
+          img(src="images/5.jpg")
+          img(src="images/6.jpg")
+        div
+          img(src="images/7.jpg")
+          img(src="images/8.jpg")
+          img(src="images/9.jpg")

@@ -12,6 +12,7 @@ var express = require('express')
 var fs = require("fs");
 
 var app = express();
+routes.init(app);
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -20,7 +21,7 @@ app.configure(function(){
 
   app.set("dataDir", "/Users/adamli/OnTheCent_Data");
 
-  app.use(express.favicon());
+  app.use(express.favicon(path.join(__dirname, "public/images/favicon.png")));
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -35,7 +36,9 @@ app.configure('development', function(){
 app.get("/", routes.index);
 app.get("/create-trail", routes.createTrail);
 app.post("/create-trail", routes.postTrail);
-app.get("/users", user.list);
+app.get("/trail", routes.trail);
+app.get("/api/trails/:id", routes.apiTrail);
+//app.get("/users", user.list);
 
 fs.mkdir(app.get("dataDir"), function(ex) {
   if (ex && ex.code != "EEXIST")

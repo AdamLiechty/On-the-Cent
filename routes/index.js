@@ -1,9 +1,40 @@
 var uuid = require("node-uuid"),
-    querystring = require("querystring");
+    querystring = require("querystring"),
+    fs = require("fs"),
+    path = require("path");
+
+var app = null;
+
+exports.init = function(expressApp) {
+  app = expressApp;
+  return exports;
+};
 
 exports.index = function(req, res){
   res.render("index", { title: "On the Cent" });
 };
+
+exports.trail = function(req, res){
+  if (req.query.trail) {
+    res.render("trail", {
+      title: "On the Cent",
+      trail: req.query.trail
+    });
+  } else {
+    res.redirect("/");
+  }
+};
+
+exports.apiTrail = function(req, res){
+  fs.readFile(path.join(app.get("dataDir"), req.params.id + ".json"), { encoding: "utf-8" }, function(err, data) {
+    if (err) {
+      res.send(400);
+    } else {
+      var trailData = JSON.parse(data);
+      res.send(trailData);
+    }
+  });
+}
 
 exports.createTrail =  function(req, res){
 

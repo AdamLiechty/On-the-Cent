@@ -1,0 +1,37 @@
+body {
+  background-image: url("/images/penny.png");
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 25px !important;
+}
+
+.jumbotron.translucent {
+  background-color: rgba(240,240,240,0.8);
+}
+.jumbotron {
+  opacity: 1.0;
+}
+
+.btn-lg.huge {
+  font-size:72px;
+}
+
+#started {
+  height: default;
+}
+.step {
+  display: block;
+  margin: 0 auto;
+  max-height: 50%;
+}
+#digits {
+    padding: 25px;
+}
+#digits > div {
+  text-align: center;
+}
+#digits img {
+  width: 175px;
+  margin: 7px 5px;
+}
