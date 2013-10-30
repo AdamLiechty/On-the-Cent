@@ -16,20 +16,26 @@ block content
         h2(data-bind="text: caption")
         button.btn.btn-lg.btn-success.huge(data-bind="click: $root.start") Let's go!
   #started(data-bind="if: started")
-    div(data-bind="with: data")
+    .step-container(data-bind="with: data")
       div(data-bind="foreach: steps")
         div(data-bind="visible: $index() == $root.index()")
           img.step(data-bind="attr: { src: image }")
-      #digits
-        div
-          img(src="images/1.jpg")
-          img(src="images/2.jpg")
-          img(src="images/3.jpg")
-        div
-          img(src="images/4.jpg")
-          img(src="images/5.jpg")
-          img(src="images/6.jpg")
-        div
-          img(src="images/7.jpg")
-          img(src="images/8.jpg")
-          img(src="images/9.jpg")
+      .year
+        img.year-digit(data-bind="attr: { src: $root.yearDigitImage(0) }, css: { vis: $root.yearDigitImage(0) }")
+        img.year-digit(data-bind="attr: { src: $root.yearDigitImage(1) }, css: { vis: $root.yearDigitImage(1) }")
+        img.year-digit(data-bind="attr: { src: $root.yearDigitImage(2) }, css: { vis: $root.yearDigitImage(2) }")
+        img.year-digit(data-bind="attr: { src: $root.yearDigitImage(3) }, css: { vis: $root.yearDigitImage(3) }")
+    #digits
+      div
+        img(src="images/1.jpg" data-bind="click: $root.tap('1')")
+        img(src="images/2.jpg" data-bind="click: $root.tap('2')")
+        img(src="images/3.jpg" data-bind="click: $root.tap('3')")
+      div
+        img(src="images/4.jpg" data-bind="click: $root.tap('4')")
+        img(src="images/5.jpg" data-bind="click: $root.tap('5')")
+        img(src="images/6.jpg" data-bind="click: $root.tap('6')")
+      div
+        img(src="images/7.jpg" data-bind="click: $root.tap('7')")
+        img(src="images/8.jpg" data-bind="click: $root.tap('8')")
+        img(src="images/9.jpg" data-bind="click: $root.tap('9')")
+        img(src="images/0.jpg" data-bind="click: $root.tap('0')")

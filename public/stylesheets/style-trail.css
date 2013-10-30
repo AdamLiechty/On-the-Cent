@@ -20,10 +20,19 @@ body {
 #started {
   height: default;
 }
+.step-container {
+  position: relative;
+}
 .step {
   display: block;
   margin: 0 auto;
   max-height: 50%;
+}
+.year {
+  position: absolute;
+  left: 50%;
+  margin-left: -80px;
+  bottom: 20px;
 }
 #digits {
     padding: 25px;
