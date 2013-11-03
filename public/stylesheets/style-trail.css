@@ -31,8 +31,22 @@ body {
 .year {
   position: absolute;
   left: 50%;
-  margin-left: -80px;
+  margin-left: -120px;
   bottom: 20px;
+  z-index: 10;
+}
+img.year-digit {
+  width: 60px;
+  height: 96px;
+  visibility: hidden;
+}
+img.year-digit.vis {
+  visibility: visible;
+}
+
+#started .jumbotron {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 #digits {
     padding: 25px;

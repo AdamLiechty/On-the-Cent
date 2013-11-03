@@ -7,6 +7,7 @@ block scripts
   script(src="/javascripts/trail.js")
   script
     var _trailId = "!{trail}";
+    var _startIndex = !{startIndex};
 
 block content
   #start(data-bind="if: !started()")
@@ -17,6 +18,9 @@ block content
         button.btn.btn-lg.btn-success.huge(data-bind="click: $root.start") Let's go!
   #started(data-bind="if: started")
     .step-container(data-bind="with: data")
+      .container
+        .jumbotron.translucent(data-bind="with: steps[$root.index()].caption")
+          h2(data-bind="text: $data")
       div(data-bind="foreach: steps")
         div(data-bind="visible: $index() == $root.index()")
           img.step(data-bind="attr: { src: image }")
@@ -25,7 +29,7 @@ block content
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(1) }, css: { vis: $root.yearDigitImage(1) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(2) }, css: { vis: $root.yearDigitImage(2) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(3) }, css: { vis: $root.yearDigitImage(3) }")
-    #digits
+    #digits(data-bind="visible: data() && data().steps[index()].year")
       div
         img(src="images/1.jpg" data-bind="click: $root.tap('1')")
         img(src="images/2.jpg" data-bind="click: $root.tap('2')")

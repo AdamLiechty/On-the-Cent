@@ -18,6 +18,7 @@ exports.trail = function(req, res){
   if (req.query.trail) {
     res.render("trail", {
       title: "On the Cent",
+      manifest: req.query.trail + ".manifest",
       trail: req.query.trail
     });
   } else {
@@ -34,7 +35,7 @@ exports.apiTrail = function(req, res){
       res.send(trailData);
     }
   });
-}
+};
 
 exports.createTrail =  function(req, res){
 
