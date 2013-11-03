@@ -27,7 +27,7 @@ exports.trail = function(req, res){
 };
 
 exports.apiTrail = function(req, res){
-  fs.readFile(path.join(app.get("dataDir"), req.params.id + ".json"), { encoding: "utf-8" }, function(err, data) {
+  fs.readFile(path.join(__dirname, "../trails", req.params.id + ".json"), { encoding: "utf-8" }, function(err, data) {
     if (err) {
       res.send(400);
     } else {

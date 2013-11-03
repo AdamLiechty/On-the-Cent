@@ -33,7 +33,9 @@ function Trail() {
 
         if (self.year().length == 4) {
           setTimeout(function() {
-            if (self.year() == steps[self.index()].year) {
+            if (self.year() == "0070") {
+              self.index(0); // Secret code to reset to the beginning of the trail.
+            } else if (self.year() == steps[self.index()].year) {
               if (self.index() + 1 < steps.length) {
                 self.index(self.index() + 1); // Success!  Next step.
               } else {

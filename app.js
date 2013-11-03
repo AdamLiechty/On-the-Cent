@@ -19,8 +19,6 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
 
-  app.set("dataDir", "/Users/adamli/OnTheCent_Data");
-
   app.use(express.favicon(path.join(__dirname, "public/images/favicon.png")));
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -39,11 +37,6 @@ app.post("/create-trail", routes.postTrail);
 app.get("/trail", routes.trail);
 app.get("/api/trails/:id", routes.apiTrail);
 //app.get("/users", user.list);
-
-fs.mkdir(app.get("dataDir"), function(ex) {
-  if (ex && ex.code != "EEXIST")
-    throw ex;
-});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("On-the-Cent server listening on port " + app.get('port'));
