@@ -54,6 +54,18 @@ function Trail() {
     };
   };
 
+  self.resetTapCount = 0;
+  self.resetTap = function() {
+    if (++self.resetTapCount == 20) {
+      self.index(0);
+      self.resetTapCount = 0;
+      var status = getTrailStatus(_trailId);
+      status.index = 0;
+      setTrailStatus(_trailId, status)
+    }
+    setTimeout(function() { self.resetTapCount = 0; }, 30000);
+  };
+
   self.yearDigitImage = function(i) {
     if (self.year().length > i)
       return "images/" + self.year()[i] + ".jpg";

@@ -15,7 +15,7 @@ block content
         h1= title
         h2(data-bind="text: caption")
         button.btn.btn-lg.btn-success.huge(data-bind="click: $root.start") Let's go!
-  #started(data-bind="if: started")
+  #started(data-bind="if: started, click: $root.resetTap ")
     .step-container(data-bind="with: data")
       .container
         .jumbotron.translucent(data-bind="with: steps[$root.index()].caption")
