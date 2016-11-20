@@ -4,11 +4,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  padding: 25px !important;
+  padding: 2% 0 !important;
+  overflow:hidden;
 }
 
 .jumbotron.translucent {
-  background-color: rgba(240,240,240,0.8);
+  background-color: rgba(240,240,240,0.6);
 }
 .jumbotron {
   opacity: 1.0;
@@ -22,18 +23,23 @@ body {
   height: default;
 }
 .step-container {
-  position: relative;
+
+}
+.header {
+  position: absolute;
+  top: 2%;
 }
 .step {
+  position: absolute;
+  bottom: 0;
   display: block;
-  margin: 0 auto;
-  max-height: 50%;
+  width: 100%;
 }
 .year {
   position: absolute;
   left: 50%;
   margin-left: -120px;
-  bottom: 20px;
+  bottom: 3%;
   z-index: 10;
 }
 img.year-digit {
@@ -43,6 +49,11 @@ img.year-digit {
 }
 img.year-digit.vis {
   visibility: visible;
+}
+input#date-input {
+  position: absolute;
+  top: -1000px;
+  left: 0;
 }
 
 #started .jumbotron {
@@ -58,4 +69,13 @@ img.year-digit.vis {
 #digits img {
   width: 175px;
   margin: 7px 5px;
+}
+#success, #failure {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  font-size: 9em;
+  display: none;
+  z-index: 100;
 }

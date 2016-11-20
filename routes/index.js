@@ -51,7 +51,7 @@ exports.createTrail =  function(req, res){
     return querystring.stringify({
       admin: admin,
       trail: trail
-    });    
+    });
   }
 
   function go(trail, admin) {

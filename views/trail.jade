@@ -9,6 +9,7 @@ block scripts
     var _trailId = "!{trail}";
 
 block content
+  input#date-input(type='number' autofocus='true' data-bind="value: year, valueUpdate: 'keyup'")
   #start(data-bind="if: !started()")
     .container
       .jumbotron.translucent(data-bind="with: data")
@@ -17,28 +18,18 @@ block content
         button.btn.btn-lg.btn-success.huge(data-bind="click: $root.start") Let's go!
   #started(data-bind="if: started, click: $root.resetTap ")
     .step-container(data-bind="with: data")
-      .container
-        .jumbotron.translucent(data-bind="with: steps[$root.index()].caption")
-          h2(data-bind="text: $data")
       div(data-bind="foreach: steps")
         div(data-bind="visible: $index() == $root.index()")
           img.step(data-bind="attr: { src: image }")
+      .container.header
+        .jumbotron.translucent(data-bind="with: steps[$root.index()].caption")
+          h2(data-bind="text: $data")
       .year
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(0) }, css: { vis: $root.yearDigitImage(0) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(1) }, css: { vis: $root.yearDigitImage(1) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(2) }, css: { vis: $root.yearDigitImage(2) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(3) }, css: { vis: $root.yearDigitImage(3) }")
-    #digits(data-bind="visible: data() && data().steps[index()].year")
-      div
-        img(src="images/1.jpg" data-bind="click: $root.tap('1')")
-        img(src="images/2.jpg" data-bind="click: $root.tap('2')")
-        img(src="images/3.jpg" data-bind="click: $root.tap('3')")
-      div
-        img(src="images/4.jpg" data-bind="click: $root.tap('4')")
-        img(src="images/5.jpg" data-bind="click: $root.tap('5')")
-        img(src="images/6.jpg" data-bind="click: $root.tap('6')")
-      div
-        img(src="images/7.jpg" data-bind="click: $root.tap('7')")
-        img(src="images/8.jpg" data-bind="click: $root.tap('8')")
-        img(src="images/9.jpg" data-bind="click: $root.tap('9')")
-        img(src="images/0.jpg" data-bind="click: $root.tap('0')")
+  #success
+    💰
+  #failure
+    👎
