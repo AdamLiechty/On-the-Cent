@@ -9,7 +9,7 @@ block scripts
     var _trailId = "!{trail}";
 
 block content
-  input#date-input(type='number' autofocus='true' data-bind="value: year, valueUpdate: 'keyup'")
+  input#date-input(type='text' pattern='\d*' autofocus='true' data-bind="value: year, valueUpdate: 'keyup'")
   #start(data-bind="if: !started()")
     .container
       .jumbotron.translucent(data-bind="with: data")
