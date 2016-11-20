@@ -52,7 +52,9 @@ function Trail() {
       }
     }
   });
-  $("#date-input").focusout(function(){$("#date-input").focus();})
+  $("#date-input").focusout(function(){
+    setTimeout(function(){$("#date-input").focus();}, 1000);
+  })
 
   self.get = function() {
     $.get("/api/trails/" + _trailId, function(data, status, jqXHR) {
