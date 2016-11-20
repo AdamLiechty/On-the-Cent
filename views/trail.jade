@@ -9,14 +9,13 @@ block scripts
     var _trailId = "!{trail}";
 
 block content
-  input#date-input(type='number' pattern='[0-9]*' autofocus='true' data-bind="value: year, valueUpdate: 'keyup'")
   #start(data-bind="if: !started()")
     .container
       .jumbotron.translucent(data-bind="with: data")
         h1= title
         h2(data-bind="text: caption")
         button.btn.btn-lg.btn-success.huge(data-bind="click: $root.start") Let's go!
-  #started(data-bind="if: started, click: $root.resetTap ")
+  #started(data-bind="if: started, click: focus")
     .step-container(data-bind="with: data")
       div(data-bind="foreach: steps")
         div(data-bind="visible: $index() == $root.index()")
@@ -29,6 +28,8 @@ block content
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(1) }, css: { vis: $root.yearDigitImage(1) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(2) }, css: { vis: $root.yearDigitImage(2) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(3) }, css: { vis: $root.yearDigitImage(3) }")
+    input#date-input(type='number' pattern='[0-9]*' data-bind="value: year, valueUpdate: 'keyup'")
+    img#coin(src='/images/penny.png')
   #success
     💰
   #failure

@@ -1,3 +1,4 @@
+var process = require('process')
 var uuid = require("node-uuid"),
     querystring = require("querystring"),
     fs = require("fs"),
@@ -18,7 +19,7 @@ exports.trail = function(req, res){
   if (req.query.trail) {
     res.render("trail", {
       title: "On the Cent",
-      manifest: req.query.trail + ".manifest",
+      manifest: process.env.NODE_ENV == "production" ? req.query.trail + ".manifest" : null,
       trail: req.query.trail
     });
   } else {

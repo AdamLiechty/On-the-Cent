@@ -52,8 +52,13 @@ img.year-digit.vis {
 }
 input#date-input {
   position: absolute;
-  top: -1000px;
+  bottom: 0;
   left: 0;
+  width: 100%;
+  height: 5%;
+  font-size: 2px;
+  border: none;
+  opacity: 0.000;
 }
 
 #started .jumbotron {
@@ -74,8 +79,15 @@ input#date-input {
   position: absolute;
   text-align: center;
   width: 100%;
-  bottom: 0;
+  bottom: 10%;
   font-size: 9em;
   display: none;
   z-index: 100;
+}
+#coin {
+  height: 10%;
+  position: absolute;
+  display: block;
+  bottom: 1%;
+  right: 1%;
 }
