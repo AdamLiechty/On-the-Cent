@@ -5,11 +5,11 @@ trail?trail=93f0a326-4e40-42b8-bd82-9c485bd3d6e4
 stylesheets/style.css
 stylesheets/style-trail.css
 
-http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
+https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
 
-http://code.jquery.com/jquery-2.1.1.min.js
-http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js
-http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
+https://code.jquery.com/jquery-2.1.1.min.js
+https://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js
+https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
 
 javascripts/trail.js
 
@@ -26,8 +26,6 @@ images/9.jpg
 images/penny.png
 
 api/trails/93f0a326-4e40-42b8-bd82-9c485bd3d6e4
-
-#http://codeorigin.jquery.com/jquery-2.0.3.min.map
 
 photos/penny.jpg
 photos/P1000007.JPG
