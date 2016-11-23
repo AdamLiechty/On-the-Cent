@@ -19,7 +19,7 @@ exports.trail = function(req, res){
   if (req.query.trail) {
     res.render("trail", {
       title: "On the Cent",
-      manifest: process.env.NODE_ENV == "production" ? req.query.trail + ".manifest" : null,
+      manifest: process.env.NODE_ENV == "production" ? `manifest-${req.query.trail}` : null,
       trail: req.query.trail
     });
   } else {
@@ -77,3 +77,5 @@ exports.postTrail = function(req, res) {
   // TODO: POST stuff.
   exports.createTrail(req, res);
 };
+
+exports.manifests = require('./manifests')
