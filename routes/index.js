@@ -16,11 +16,11 @@ exports.index = function(req, res){
 };
 
 exports.trail = function(req, res){
-  if (req.query.trail) {
+  if (req.params.trailId) {
     res.render("trail", {
       title: "On the Cent",
-      manifest: process.env.NODE_ENV == "production" ? `manifest-${req.query.trail}` : null,
-      trail: req.query.trail
+      manifest: process.env.NODE_ENV == "production" ? `manifest-${req.params.trailId}` : null,
+      trail: req.params.trailId
     });
   } else {
     res.redirect("/");
@@ -33,6 +33,7 @@ exports.apiTrail = function(req, res){
       res.send(400);
     } else {
       var trailData = JSON.parse(data);
+      res.header('Cache-control', 'no-cache')
       res.send(trailData);
     }
   });

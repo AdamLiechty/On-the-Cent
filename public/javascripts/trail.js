@@ -16,9 +16,12 @@ function Trail() {
   self.started = ko.observable(false);
   self.focus = function() {
     $("#date-input").focus();
+    self.resetTap();
   };
-  self.done = ko.observable(false);
   self.index = ko.observable(getTrailStatus(_trailId).index || 0);
+  self.done = ko.computed(function() {
+    return self.data() && self.index() >= self.data().steps.length-1;
+  });
   self.year = ko.observable("");
   self.year.subscribe(function(year) {
     var steps = self.data().steps;
@@ -35,8 +38,6 @@ function Trail() {
           setTimeout(function() {
             if (self.index() + 1 < steps.length) {
               self.index(self.index() + 1); // Success!  Next step.
-            } else {
-              self.done(true);
             }
             saveState();
             self.year("");
@@ -68,12 +69,24 @@ function Trail() {
 
   self.yearDigitImage = function(i) {
     if (self.year().length > i)
-      return "images/" + self.year()[i] + ".jpg";
+      return "/images/" + self.year()[i] + ".jpg";
     return null;
   };
 
   self.start = function() {
     self.started(true);
+  };
+
+  self.resetTapCount = 0;
+  self.resetTap = function() {
+    if (++self.resetTapCount == 20) {
+      self.index(0);
+      self.resetTapCount = 0;
+      var status = getTrailStatus(_trailId);
+      status.index = 0;
+      setTrailStatus(_trailId, status)
+    }
+    setTimeout(function() { self.resetTapCount = 0; }, 30000);
   };
 }
 

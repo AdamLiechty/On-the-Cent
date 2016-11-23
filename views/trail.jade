@@ -29,8 +29,6 @@ block content
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(2) }, css: { vis: $root.yearDigitImage(2) }")
         img.year-digit(data-bind="attr: { src: $root.yearDigitImage(3) }, css: { vis: $root.yearDigitImage(3) }")
     input#date-input(type='number' pattern='[0-9]*' data-bind="value: year, valueUpdate: 'keyup'")
-    img#coin(src='/images/penny.png')
-  #success
-    💰
-  #failure
-    👎
+    img#coin(src='/images/penny.png' data-bind="visible: !done()")
+  #success 💰
+  #failure 👎

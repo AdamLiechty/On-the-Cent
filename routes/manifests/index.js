@@ -32,6 +32,7 @@ module.exports = function manifests(req, res) {
   }
   if (manifest) {
     res.type('text/manifest')
+    res.header('Cache-control', 'no-cache')
     res.send(manifest)
   } else {
     res.status(404).send()

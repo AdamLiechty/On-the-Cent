@@ -33,7 +33,7 @@ app.configure('development', function(){
 app.get("/", routes.index);
 app.get("/create-trail", routes.createTrail);
 app.post("/create-trail", routes.postTrail);
-app.get("/trail", routes.trail);
+app.get("/trails/:trailId", routes.trail);
 app.get("/api/trails/:id", routes.apiTrail);
 app.get("/manifest-:id", routes.manifests)
 //app.get("/users", user.list);
