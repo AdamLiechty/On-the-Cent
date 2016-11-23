@@ -1,3 +1,4 @@
+'use strict'
 const fs = require('fs')
 const path = require('path')
 const manifestTemplate = fs.readFileSync(path.join(__dirname, 'manifestTemplate.txt'), {encoding: 'utf8'})
