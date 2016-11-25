@@ -18,6 +18,13 @@ function Trail() {
     $("#date-input").focus();
     self.resetTap();
   };
+
+  var pennyDegrees = 0;
+  setInterval(function rotate() {
+    pennyDegrees -= 0.3;
+    $("#coin").css("transform", "rotate("+pennyDegrees+"deg)")
+  }, 50);
+
   self.index = ko.observable(getTrailStatus(_trailId).index || 0);
   self.done = ko.computed(function() {
     return self.data() && self.index() >= self.data().steps.length-1;
